@@ -279,7 +279,7 @@ func (syslog *syslogWriter) Write(level Level, module, filename string, line int
 	}
 
 	header := fmt.Sprintf("<%d>1 %s %s %s %d - -", priority, timestamp.Format(rfc5424), hostname, module, os.Getpid())
-	msg := fmt.Sprintf("%s %s%s:%d %s", header, utf8bom, filename, line, message)
+	msg := fmt.Sprintf("%s %s%s:%d %s\n", header, utf8bom, filename, line, message)
 
 	syslog.bufferedMessagesCond.L.Lock()
 	syslog.bufferedMessages = append(syslog.bufferedMessages, msg)
