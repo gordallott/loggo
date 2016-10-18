@@ -35,7 +35,7 @@ func GetLogger(name string) Logger {
 	return globalLoggers.Get(name)
 }
 
-// ResetLogging iterates through the known modules and sets the levels of all
+// ResetLoggers iterates through the known modules and sets the levels of all
 // to UNSPECIFIED, except for <root> which is set to WARNING.
 func ResetLoggers() {
 	globalLoggers.resetLevels()

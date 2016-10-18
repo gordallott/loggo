@@ -86,14 +86,14 @@ type HasMinLevel interface {
 	MinLogLevel() Level
 }
 
-// HasParentWithLevel represents values that have a parent that in turn
+// HasParentWithMinLevel represents values that have a parent that in turn
 // have a minimum log level.
 type HasParentWithMinLevel interface {
 	// ParentWithMinLogLevel returns the value's parent (or nil).
 	ParentWithMinLogLevel() HasMinLevel
 }
 
-// EffectiveLogMinLevel returns the effective minimum log level of the
+// EffectiveMinLevel returns the effective minimum log level of the
 // leveler. This is the level at which messages with a lower level
 // will be discarded for this leveler.
 //
